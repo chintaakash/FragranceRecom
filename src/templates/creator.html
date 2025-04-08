@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+
+{% block title %}About the Creator - Fragrance Recommender{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="creator-header text-center mb-5">
+                <div class="creator-avatar mb-4">
+                    <i class="fas fa-user-circle fa-5x text-primary"></i>
+                </div>
+                <h1 class="display-5 fw-bold mb-3">Akash Chinta</h1>
+                <p class="lead text-muted">Fragrance Enthusiast & Developer</p>
+                <div class="social-links mt-3">
+                    <a href="https://www.tiktok.com/@aromawithakash" target="_blank" class="btn btn-outline-primary me-2">
+                        <i class="fab fa-tiktok me-2"></i>@aromawithakash
+                    </a>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title h4 mb-4">
+                                <i class="fas fa-graduation-cap text-primary me-2"></i>Education
+                            </h3>
+                            <div class="education-item">
+                                <h4 class="h5 mb-2">The University of Texas at Austin</h4>
+                                <p class="text-muted mb-1">Double Major: Economics & Computer Science</p>
+                                <p class="text-muted">Current Student</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title h4 mb-4">
+                                <i class="fas fa-spray-can text-primary me-2"></i>Fragrance Journey
+                            </h3>
+                            <p class="card-text">
+                                As a passionate fragrance enthusiast, I created this recommender to help others discover their perfect scent. 
+                                Through my TikTok account @aromawithakash, I share my knowledge and love for fragrances with the world.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title h4 mb-4">
+                                <i class="fas fa-lightbulb text-primary me-2"></i>About This Project
+                            </h3>
+                            <p class="card-text">
+                                This fragrance recommender combines my passion for fragrances with my technical skills in computer science. 
+                                It's designed to help users find their perfect scent based on their preferences, making the world of fragrances 
+                                more accessible and personalized.
+                            </p>
+                            <div class="mt-4">
+                                <a href="https://www.tiktok.com/@aromawithakash" target="_blank" class="btn btn-primary">
+                                    <i class="fab fa-tiktok me-2"></i>Follow My Fragrance Journey
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.creator-header {
+    padding: 3rem 0;
+    background: linear-gradient(135deg, rgba(108, 99, 255, 0.1), rgba(255, 107, 107, 0.1));
+    border-radius: 20px;
+    margin-bottom: 3rem;
+}
+
+.creator-avatar {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.social-links .btn {
+    border-radius: 25px;
+    padding: 0.5rem 1.5rem;
+}
+
+.education-item {
+    padding: 1rem;
+    background: rgba(108, 99, 255, 0.05);
+    border-radius: 10px;
+}
+
+.card {
+    border: none;
+    background: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+    padding: 2rem;
+}
+</style>
+{% endblock %} 

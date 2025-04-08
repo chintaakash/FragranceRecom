@@ -1,0 +1,147 @@
+{% extends "base.html" %}
+
+{% block title %}Welcome - Fragrance Recommender{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-10 text-center">
+            <div class="hero-section mb-5">
+                <h1 class="display-4 fw-bold mb-4">Discover Your Perfect Scent</h1>
+                <p class="lead text-muted mb-5">Let us help you find the fragrance that matches your unique style and preferences.</p>
+                <div class="d-flex justify-content-center gap-3">
+                    <a href="{{ url_for('preferences') }}" class="btn btn-primary btn-lg">
+                        <i class="fas fa-magic me-2"></i>Get Started
+                    </a>
+                    <a href="{{ url_for('recommendations') }}" class="btn btn-outline-primary btn-lg">
+                        <i class="fas fa-star me-2"></i>View Recommendations
+                    </a>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="icon-wrapper mb-4">
+                                <i class="fas fa-sliders-h fa-3x text-primary"></i>
+                            </div>
+                            <h3 class="card-title h5 mb-3">Set Your Preferences</h3>
+                            <p class="card-text text-muted">Tell us about your favorite notes, occasions, and price range to get personalized recommendations.</p>
+                            <a href="{{ url_for('preferences') }}" class="btn btn-outline-primary mt-3">
+                                <i class="fas fa-arrow-right me-2"></i>Set Preferences
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="icon-wrapper mb-4">
+                                <i class="fas fa-search fa-3x text-primary"></i>
+                            </div>
+                            <h3 class="card-title h5 mb-3">Get Recommendations</h3>
+                            <p class="card-text text-muted">Receive personalized fragrance suggestions based on your preferences and taste.</p>
+                            <a href="{{ url_for('recommendations') }}" class="btn btn-outline-primary mt-3">
+                                <i class="fas fa-arrow-right me-2"></i>View Recommendations
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="icon-wrapper mb-4">
+                                <i class="fas fa-info-circle fa-3x text-primary"></i>
+                            </div>
+                            <h3 class="card-title h5 mb-3">Learn About Notes</h3>
+                            <p class="card-text text-muted">Understand different fragrance notes and how they work together to create unique scents.</p>
+                            <a href="{{ url_for('preferences') }}#notes" class="btn btn-outline-primary mt-3">
+                                <i class="fas fa-arrow-right me-2"></i>Explore Notes
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-5">
+                <h2 class="h4 mb-4">Why Choose Our Recommender?</h2>
+                <div class="row g-4">
+                    <div class="col-md-3">
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle text-primary mb-2"></i>
+                            <p class="mb-0">Personalized Suggestions</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle text-primary mb-2"></i>
+                            <p class="mb-0">Expert Curation</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle text-primary mb-2"></i>
+                            <p class="mb-0">Easy to Use</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle text-primary mb-2"></i>
+                            <p class="mb-0">No Account Needed</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.hero-section {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, rgba(108, 99, 255, 0.1), rgba(255, 107, 107, 0.1));
+    border-radius: 20px;
+    margin-bottom: 4rem;
+}
+
+.icon-wrapper {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(108, 99, 255, 0.1);
+    border-radius: 50%;
+}
+
+.feature-item {
+    text-align: center;
+    padding: 1rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+}
+
+.feature-item i {
+    font-size: 1.5rem;
+}
+
+.card {
+    border: none;
+    background: white;
+}
+
+.card-body {
+    padding: 2rem;
+}
+</style>
+{% endblock %} 

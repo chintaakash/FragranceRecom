@@ -1,0 +1,172 @@
+{% extends "base.html" %}
+
+{% block title %}Fragrance Preferences{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h2 class="text-center mb-4">Your Fragrance Preferences</h2>
+                    
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                        {% if messages %}
+                            {% for category, message in messages %}
+                                <div class="alert alert-{{ category }} alert-dismissible fade show">
+                                    {{ message }}
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+
+                    <form method="POST" action="{{ url_for('preferences') }}" class="needs-validation" novalidate>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="preferred_notes" class="form-label">
+                                    <i class="fas fa-leaf text-primary me-2"></i>Preferred Notes
+                                </label>
+                                <select multiple class="form-select" id="preferred_notes" name="preferred_notes" required>
+                                    <option value="citrus">Citrus</option>
+                                    <option value="floral">Floral</option>
+                                    <option value="woody">Woody</option>
+                                    <option value="spicy">Spicy</option>
+                                    <option value="fresh">Fresh</option>
+                                    <option value="oriental">Oriental</option>
+                                    <option value="fruity">Fruity</option>
+                                    <option value="gourmand">Gourmand</option>
+                                </select>
+                                <div class="form-text">Hold Ctrl/Cmd to select multiple options</div>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label for="preferred_families" class="form-label">
+                                    <i class="fas fa-tree text-primary me-2"></i>Fragrance Families
+                                </label>
+                                <select multiple class="form-select" id="preferred_families" name="preferred_families" required>
+                                    <option value="floral">Floral</option>
+                                    <option value="woody">Woody</option>
+                                    <option value="fresh">Fresh</option>
+                                    <option value="oriental">Oriental</option>
+                                    <option value="fougere">Fougère</option>
+                                    <option value="chypre">Chypre</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="intensity" class="form-label">
+                                    <i class="fas fa-fire-alt text-primary me-2"></i>Intensity
+                                </label>
+                                <select class="form-select" id="intensity" name="intensity" required>
+                                    <option value="">Select intensity...</option>
+                                    <option value="light">Light</option>
+                                    <option value="moderate">Moderate</option>
+                                    <option value="strong">Strong</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label for="season" class="form-label">
+                                    <i class="fas fa-sun text-primary me-2"></i>Season
+                                </label>
+                                <select class="form-select" id="season" name="season" required>
+                                    <option value="">Select season...</option>
+                                    <option value="spring">Spring</option>
+                                    <option value="summer">Summer</option>
+                                    <option value="fall">Fall</option>
+                                    <option value="winter">Winter</option>
+                                    <option value="all">All Seasons</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="occasion" class="form-label">
+                                    <i class="fas fa-calendar text-primary me-2"></i>Occasion
+                                </label>
+                                <select class="form-select" id="occasion" name="occasion" required>
+                                    <option value="">Select occasion...</option>
+                                    <option value="daytime">Daytime</option>
+                                    <option value="evening">Evening</option>
+                                    <option value="special">Special Occasions</option>
+                                    <option value="work">Work</option>
+                                    <option value="casual">Casual</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label for="price_range" class="form-label">
+                                    <i class="fas fa-tag text-primary me-2"></i>Price Range
+                                </label>
+                                <select class="form-select" id="price_range" name="price_range" required>
+                                    <option value="">Select price range...</option>
+                                    <option value="budget">Budget ($0-$50)</option>
+                                    <option value="mid">Mid-Range ($50-$150)</option>
+                                    <option value="luxury">Luxury ($150+)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                <i class="fas fa-save me-2"></i>Save Preferences
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Add Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<style>
+.card {
+    border-radius: 15px;
+    border: none;
+}
+.form-select {
+    border-radius: 8px;
+}
+.btn-primary {
+    border-radius: 25px;
+    padding: 10px 30px;
+}
+.form-label {
+    font-weight: 500;
+}
+</style>
+
+<script>
+// Form validation
+(function () {
+    'use strict'
+    var forms = document.querySelectorAll('.needs-validation')
+    Array.prototype.slice.call(forms).forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+            if (!form.checkValidity()) {
+                event.preventDefault()
+                event.stopPropagation()
+            }
+            form.classList.add('was-validated')
+        }, false)
+    })
+})()
+
+// Make multiple select more user-friendly
+document.querySelectorAll('select[multiple]').forEach(select => {
+    select.addEventListener('click', function(e) {
+        if (e.target.tagName === 'OPTION') {
+            e.preventDefault()
+            e.target.selected = !e.target.selected
+        }
+    })
+})
+</script>
+{% endblock %} 
